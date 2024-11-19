@@ -9,6 +9,6 @@ Upscalling video to 720P
 </li>
   <li>
     Step 2 : 
-    <p> RUN "Enhanceer.py" </p>
+    <p> RUN "Enhancer.py" </p>
   </li>
 </ul>
