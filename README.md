@@ -1,5 +1,6 @@
-# Video-Upscale
-Upscalling video to 720P
+# Video-Upscaler
+Upscalling low quality video to HD(720P)
+
 # ABOUT 
 <p> TECH STACK :  PYTHON OPEN-CV PILLOW ImageIO  </p>
 
