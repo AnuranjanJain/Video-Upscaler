@@ -13,4 +13,16 @@ Upscalling low quality video to HD(720P)
     Step 2 : 
     <p> RUN "Enhancer.py" </p>
   </li>
+  <li>
+    Step 3 :
+    <p>Enter The Path of Low Quality Video </p>
+  </li>
+  <li>
+    Step 4 : 
+    <p>Enter the File Name for Upscalled Video (Without Extension)</p>
+  </li>
+  <li>
+    Step 5 :
+    <p>Check the Local Dir for Video</p>
+  </li>
 </ul>
