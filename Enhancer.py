@@ -7,6 +7,8 @@ import numpy as np
 from skimage import io
 
 input_path = str(input("Path of the input video:")) #Giving the input video's path 
+if '"' in input_path or "'" in input_path:
+    raise ValueError("Input path should not contain single or double quotes. Please write the path without them.")
 output_path = r"media\output folder" #The resultant video's desired path
 output_video = str(input("Name of the output video:"))
 
