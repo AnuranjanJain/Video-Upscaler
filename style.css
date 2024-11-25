@@ -1,0 +1,45 @@
+body {
+    background-color: #f8f9fa;
+}
+
+.hero {
+    background: linear-gradient(to right, #4a90e2, #9013fe);
+    color: white;
+}
+
+.video-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.video {
+    max-width: 100%;
+    border: 2px solid #4a90e2;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.button.is-link {
+    background-color: #4a90e2;
+    border-color: transparent;
+}
+
+.button.is-link:hover {
+    background-color: #357ab8;
+}
+
+.button.is-success {
+    background-color: #28a745;
+    border-color: transparent;
+}
+
+.button.is-success:hover {
+    background-color: #218838;
+}
+
+.footer {
+    background-color: #4a90e2;
+    color: white;
+    padding: 10px 0;
+}

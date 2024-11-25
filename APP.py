@@ -32,5 +32,5 @@ def upload_video():
     return send_from_directory('media/output', video.filename, as_attachment=True)
 
 
-if __name__ == '_main_':
+if __name__ == '__main__':
     app.run(debug=True)
