@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fancy Video Enhancer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <section class="hero is-primary">
+        <div class="hero-body">
+            <div class="container">
+                <h1 class="title">Fancy Video Enhancer</h1>
+                <h2 class="subtitle">Enhance your videos effortlessly!</h2>
+            </div>
+        </div>
+    </section>
+    <main class="container">
+        <div class="section">
+            <h2 class="title">Upload Your Video</h2>
+            <div class="field">
+                <div class="control">
+                    <input class="input" type="file" id="videoUpload" accept="video/*">
+                </div>
+            </div>
+            <button class="button is-link" id="enhanceBtn">Enhance Video</button>
+        </div>
+        <div class="section" id="videoPreviewSection" style="display: none;">
+            <h2 class="title">Video Preview</h2>
+            <div class="video-container">
+                <video id="videoPreview" class="video" controls></video>
+            </div>
+            <a id="downloadLink" class="button is-success" style="display: none;">Download Enhanced Video</a>
+        </div>
+    </main>
+    <footer class="footer">
+        <div class="content has-text-centered">
+            <p>&copy; 2024 Fancy Video Enhancer. All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
