@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fancy Video Enhancer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <section class="hero is-medium">
+        <div class="hero-body">
+            <div class="container">
+                <h1 class="title">Video Enhancer</h1>
+                <h2 class="subtitle">Transform your videos with powerful AI enhancement</h2>
+            </div>
+        </div>
+    </section>
+    <main class="container">
+        <!-- Form element to send the video via POST method-->
+        <form action="/upload" id="uploadForm" method="POST" enctype="multipart/form-data">
+            <div class="section">
+                <h2 class="title">Upload Your Video</h2>
+                
+                <div class="columns is-vcentered">
+                    <div class="column is-8">
+                        <div class="file-upload-info">
+                            <h3 class="is-size-5 mb-3">Choose a Video File</h3>
+                            <p class="mb-3">Select a video to enhance with our AI processing. Supported formats: MP4, AVI, MOV, and more.</p>
+                            <div class="file-name-display mt-3 is-hidden">
+                                <span class="icon has-text-success mr-2">
+                                    <i class="fas fa-check-circle"></i>
+                                </span>
+                                <span class="file-selected-name">No file selected</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column is-4">
+                        <div class="file-upload">
+                            <input class="input themed-file-input" type="file" id="videoUpload" name="video" accept="video/*">
+                            <div class="file-label">
+                                <span class="file-icon">
+                                    <i class="fas fa-cloud-upload-alt"></i>
+                                </span>
+                                <div class="file-text">
+                                    <p>Drag and drop your video here</p>
+                                    <p class="is-size-7">or click to browse</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="field mt-5">
+                    <div class="control enhancement-options">
+                        <h3 class="is-size-5 mb-3">Enhancement Options</h3>
+                        <div class="columns is-multiline">
+                            <div class="column is-half">
+                                <label class="option-card">
+                                    <input type="checkbox" name="denoise" checked>
+                                    <span class="option-content">
+                                        <i class="fas fa-filter"></i>
+                                        <span>Noise Reduction</span>
+                                    </span>
+                                </label>
+                            </div>
+                            <div class="column is-half">
+                                <label class="option-card">
+                                    <input type="checkbox" name="color_enhance" checked>
+                                    <span class="option-content">
+                                        <i class="fas fa-palette"></i>
+                                        <span>Color Enhancement</span>
+                                    </span>
+                                </label>
+                            </div>
+                            <div class="column is-half">
+                                <label class="option-card">
+                                    <input type="checkbox" name="sharpen" checked>
+                                    <span class="option-content">
+                                        <i class="fas fa-bezier-curve"></i>
+                                        <span>Sharpen Details</span>
+                                    </span>
+                                </label>
+                            </div>
+                            <div class="column is-half">
+                                <label class="option-card">
+                                    <input type="checkbox" name="stabilize">
+                                    <span class="option-content">
+                                        <i class="fas fa-video"></i>
+                                        <span>Stabilization</span>
+                                    </span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="buttons mt-5">
+                    <button class="button is-link pulse" id="enhanceBtn" disabled>
+                        <span class="icon">
+                            <i class="fas fa-magic"></i>
+                        </span>
+                        <span>Enhance Video</span>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </main>
+    
+    <footer class="footer">
+        <div class="content has-text-centered">
+            <p>
+                Video Enhancer &copy; 2024 | Transform your videos with AI
+            </p>
+        </div>
+    </footer>
+    
+    <script src="/static/script.js"></script>
+</body>
+<!--
+    Removed unncessary scripts, you can write some such as validating file before uploading to the server, 
+    also start writing comments
+    ~AC 
+-->
+
+</html>

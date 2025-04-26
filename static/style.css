@@ -1,0 +1,573 @@
+:root {
+    --primary-color: #8e44ad;
+    --primary-dark: #662d91;
+    --primary-light: #a569bd;
+    --dark-bg: #1a1a2e;
+    --dark-surface: #222437;
+    --text-light: #f1f1f1;
+    --text-dark: #121212;
+    --accent: #9c27b0;
+    --transition-speed: 0.3s;
+}
+
+body {
+    background-color: var(--dark-bg);
+    color: var(--text-light);
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    transition: background-color var(--transition-speed) ease;
+}
+
+.hero {
+    background: linear-gradient(135deg, var(--primary-color), #3a1c71);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml;charset=utf8,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"%3E%3Cpath fill="%239C27B0" fill-opacity="0.2" d="M0,160L48,144C96,128,192,96,288,106.7C384,117,480,171,576,197.3C672,224,768,224,864,208C960,192,1056,160,1152,149.3C1248,139,1344,149,1392,154.7L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"%3E%3C/path%3E%3C/svg%3E');
+    opacity: 0.3;
+    z-index: 0;
+}
+
+.hero-body {
+    position: relative;
+    z-index: 1;
+    padding: 3rem 1.5rem !important;
+}
+
+.hero .title {
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    animation: fadeIn 1s ease-in-out;
+}
+
+.hero .subtitle {
+    font-weight: 400;
+    opacity: 0;
+    animation: slideUp 1s ease-in-out 0.3s forwards;
+}
+
+main.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+    background-color: var(--dark-surface);
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: -40px;
+    position: relative;
+    z-index: 2;
+    transform: translateY(0);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+main.container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 40px rgba(138, 43, 226, 0.2);
+}
+
+.section h2.title {
+    color: var(--text-light);
+    font-size: 1.7rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+    display: inline-block;
+}
+
+.section h2.title::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background: var(--primary-light);
+    border-radius: 3px;
+}
+
+.field {
+    margin-bottom: 1.5rem;
+}
+
+.input {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--text-light);
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    box-shadow: none;
+    padding: 12px;
+    height: auto;
+}
+
+.input:hover, .input:focus {
+    background-color: rgba(255, 255, 255, 0.15);
+    border-color: var(--primary-light);
+    box-shadow: 0 0 0 2px rgba(142, 68, 173, 0.2);
+}
+
+/* Custom file input */
+.file-upload {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    position: relative;
+    margin-bottom: 1rem;
+    height: 100%;
+}
+
+input[type="file"] {
+    cursor: pointer;
+    padding: 120px 0 0 0;
+    background: linear-gradient(to bottom, rgba(146, 96, 220, 0.1), rgba(41, 21, 71, 0.1));
+    border: 2px dashed rgba(146, 96, 220, 0.5);
+    border-radius: 8px;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    min-height: 200px;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+input[type="file"]:hover {
+    background: linear-gradient(to bottom, rgba(146, 96, 220, 0.15), rgba(41, 21, 71, 0.15));
+    border-color: var(--primary-color);
+}
+
+.file-label {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--text-light);
+    pointer-events: none;
+    text-align: center;
+    width: 100%;
+}
+
+.file-icon {
+    font-size: 40px;
+    margin-bottom: 10px;
+    color: var(--primary-light);
+}
+
+.file-upload-info {
+    padding: 1rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.file-upload-info h3 {
+    color: var(--primary-light);
+    font-weight: 600;
+    position: relative;
+    display: inline-block;
+    margin-bottom: 1.5rem;
+}
+
+.file-upload-info h3::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 40px;
+    height: 3px;
+    background: var(--primary-light);
+    border-radius: 3px;
+}
+
+.file-name-display {
+    padding: 0.75rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    transition: all 0.3s ease;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.file-selected-name {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 100%;
+}
+
+.button {
+    padding: 0.8rem 1.5rem;
+    border-radius: 6px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    transform: translateY(0);
+}
+
+.button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: all 0.6s ease;
+}
+
+.button:hover::before {
+    left: 100%;
+}
+
+.button:active {
+    transform: translateY(2px);
+}
+
+.button.is-link {
+    background: linear-gradient(45deg, var(--primary-dark), var(--primary-color));
+    border: none;
+    box-shadow: 0 4px 15px rgba(142, 68, 173, 0.3);
+}
+
+.button.is-link:hover {
+    background: linear-gradient(45deg, var(--primary-color), var(--primary-dark));
+    box-shadow: 0 6px 20px rgba(142, 68, 173, 0.4);
+}
+
+.button.is-success {
+    background: linear-gradient(45deg, #219653, #27ae60);
+    border: none;
+    box-shadow: 0 4px 15px rgba(39, 174, 96, 0.3);
+}
+
+.button.is-success:hover {
+    background: linear-gradient(45deg, #27ae60, #219653);
+    box-shadow: 0 6px 20px rgba(39, 174, 96, 0.4);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.pulse {
+    animation: pulse 2s infinite;
+}
+
+/* Responsive styles */
+@media screen and (max-width: 768px) {
+    main.container {
+        margin-top: -20px;
+        padding: 1.5rem;
+    }
+    
+    .hero-body {
+        padding: 2rem 1rem !important;
+    }
+    
+    .button {
+        width: 100%;
+    }
+}
+
+/* Add Poppins font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+/* Enhancement options */
+.enhancement-options h3 {
+    color: var(--text-light);
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.option-card {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    padding: 1rem;
+    display: block;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    height: 100%;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.option-card:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(138, 43, 226, 0.15);
+    border-color: var(--primary-light);
+}
+
+.option-card input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+}
+
+.option-card input[type="checkbox"]:checked + .option-content {
+    color: var(--primary-light);
+}
+
+.option-card input[type="checkbox"]:checked + .option-content::before {
+    content: '';
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--primary-light);
+    box-shadow: 0 0 10px var(--primary-light);
+}
+
+.option-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-light);
+    transition: all 0.3s ease;
+}
+
+.option-content i {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.option-card:hover .option-content i {
+    transform: scale(1.2);
+}
+
+/* Footer styles */
+.footer {
+    background-color: var(--dark-bg);
+    color: var(--text-light);
+    opacity: 0.8;
+    padding: 1.5rem;
+    margin-top: 3rem;
+}
+
+/* Video player styles for the video result page */
+video {
+    max-width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
+    transition: all 0.3s ease;
+}
+
+video:hover {
+    box-shadow: 0 8px 32px rgba(138, 43, 226, 0.2);
+}
+
+/* Loading animation */
+.loading-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 3rem 0;
+}
+
+.loading-spinner {
+    width: 50px;
+    height: 50px;
+    border: 3px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    border-top-color: var(--primary-color);
+    animation: spin 1s linear infinite;
+    margin-bottom: 1rem;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.loading-text {
+    color: var(--text-light);
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+/* Glass morphism effects */
+.glass-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 1.5rem;
+    margin: 1rem 0;
+    transition: all 0.3s ease;
+}
+
+.glass-card:hover {
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.2);
+}
+
+/* Glow effects */
+.glow-text {
+    text-shadow: 0 0 10px rgba(142, 68, 173, 0.5);
+}
+
+.glow-box {
+    box-shadow: 0 0 15px rgba(142, 68, 173, 0.3);
+}
+
+/* Additional animations */
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+}
+
+.float {
+    animation: float 6s ease-in-out infinite;
+}
+
+/* Add styles for tooltips */
+[data-tooltip] {
+    position: relative;
+    cursor: help;
+}
+
+[data-tooltip]:before {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0.5rem;
+    background: var(--dark-surface);
+    color: var(--text-light);
+    border-radius: 4px;
+    font-size: 0.8rem;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    z-index: 10;
+}
+
+[data-tooltip]:hover:before {
+    opacity: 1;
+    bottom: 110%;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+#enhanceBtn {
+    min-width: 200px;
+    transition: all 0.3s ease;
+}
+
+#enhanceBtn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    box-shadow: none;
+    animation: none;
+}
+
+#enhanceBtn:not(:disabled) {
+    animation: pulse 2s infinite;
+}
+
+/* Style the themed file input */
+.themed-file-input {
+    position: relative;
+    background: linear-gradient(135deg, rgba(102, 45, 145, 0.1), rgba(156, 39, 176, 0.1)) !important;
+    border: 2px dashed rgba(156, 39, 176, 0.4) !important;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1) !important;
+}
+
+.themed-file-input:hover {
+    background: linear-gradient(135deg, rgba(102, 45, 145, 0.15), rgba(156, 39, 176, 0.15)) !important;
+    border-color: var(--primary-color) !important;
+    box-shadow: 0 5px 15px rgba(102, 45, 145, 0.2) !important;
+}
+
+.themed-file-input.active {
+    border-color: var(--primary-color) !important;
+    box-shadow: 0 0 15px rgba(102, 45, 145, 0.4) !important;
+    animation: pulse 1.5s infinite;
+}
+
+/* Style the native file input button */
+.themed-file-input::-webkit-file-upload-button {
+    background: linear-gradient(45deg, var(--primary-dark), var(--primary-color));
+    color: var(--text-light);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    margin: 10px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(102, 45, 145, 0.3);
+    font-family: 'Poppins', sans-serif;
+}
+
+.themed-file-input::-webkit-file-upload-button:hover {
+    background: linear-gradient(45deg, var(--primary-color), var(--primary-dark));
+    box-shadow: 0 6px 15px rgba(102, 45, 145, 0.4);
+    transform: translateY(-2px);
+}
+
+/* Firefox */
+.themed-file-input::file-selector-button {
+    background: linear-gradient(45deg, var(--primary-dark), var(--primary-color));
+    color: var(--text-light);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    margin: 10px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(102, 45, 145, 0.3);
+    font-family: 'Poppins', sans-serif;
+}
+
+.themed-file-input::file-selector-button:hover {
+    background: linear-gradient(45deg, var(--primary-color), var(--primary-dark));
+    box-shadow: 0 6px 15px rgba(102, 45, 145, 0.4);
+    transform: translateY(-2px);
+}
+
+.file-upload.highlight .themed-file-input {
+    background: linear-gradient(135deg, rgba(102, 45, 145, 0.2), rgba(156, 39, 176, 0.2)) !important;
+    box-shadow: 0 5px 20px rgba(102, 45, 145, 0.25) !important;
+}

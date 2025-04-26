@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Enhanced Video - Video Enhancer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="/static/vdo_style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <section class="hero is-medium">
+        <div class="hero-body">
+            <div class="container">
+                <h1 class="title float">Video Enhancer</h1>
+                <h2 class="subtitle">Enhancement Complete!</h2>
+            </div>
+        </div>
+    </section>
+    
+    <main class="container">
+        <div class="glass-card">
+            <h2 class="title is-3 has-text-centered glow-text mb-5">{{message}}</h2>
+            
+            <div class="video-container">
+                <video class="glow-box" width="100%" controls autoplay>
+                    <source src="/static/output_video.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            
+            <div class="columns is-centered mt-5">
+                <div class="column is-narrow">
+                    <div class="buttons">
+                        <a href="/static/output_video.mp4" download class="button is-success">
+                            <span class="icon">
+                                <i class="fas fa-download"></i>
+                            </span>
+                            <span>Download Enhanced Video</span>
+                        </a>
+                        <a href="/" class="button is-link">
+                            <span class="icon">
+                                <i class="fas fa-redo"></i>
+                            </span>
+                            <span>Enhance Another Video</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="glass-card mt-5">
+            <h3 class="title is-5">Enhancement Summary</h3>
+            <div class="columns">
+                <div class="column is-half">
+                    <div class="enhancement-stat">
+                        <span class="icon"><i class="fas fa-magic"></i></span>
+                        <span>AI Processing Complete</span>
+                        <div class="stat-bar"><span style="width: 100%"></span></div>
+                    </div>
+                    <div class="enhancement-stat">
+                        <span class="icon"><i class="fas fa-filter"></i></span>
+                        <span>Noise Reduction</span>
+                        <div class="stat-bar"><span style="width: 95%"></span></div>
+                    </div>
+                </div>
+                <div class="column is-half">
+                    <div class="enhancement-stat">
+                        <span class="icon"><i class="fas fa-palette"></i></span>
+                        <span>Color Enhancement</span>
+                        <div class="stat-bar"><span style="width: 90%"></span></div>
+                    </div>
+                    <div class="enhancement-stat">
+                        <span class="icon"><i class="fas fa-bezier-curve"></i></span>
+                        <span>Detail Sharpening</span>
+                        <div class="stat-bar"><span style="width: 88%"></span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <footer class="footer">
+        <div class="content has-text-centered">
+            <p>
+                Video Enhancer &copy; 2024 | Transform your videos with AI
+            </p>
+        </div>
+    </footer>
+    
+    <style>
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
+        }
+        
+        .video-container video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+        
+        .enhancement-stat {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .enhancement-stat .icon {
+            color: var(--primary-light);
+            margin-right: 0.5rem;
+            font-size: 1.2rem;
+        }
+        
+        .stat-bar {
+            height: 6px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 3px;
+            width: 100%;
+            margin-top: 0.5rem;
+            overflow: hidden;
+        }
+        
+        .stat-bar span {
+            display: block;
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary-dark), var(--accent));
+            border-radius: 3px;
+            animation: stat-fill 1.5s ease;
+        }
+        
+        @keyframes stat-fill {
+            from { width: 0; }
+        }
+    </style>
+</body>
+</html>

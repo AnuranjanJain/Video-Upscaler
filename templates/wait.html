@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Processing Your Video - Video Enhancer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/static/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        function checkStatus() {
+            fetch('/status')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('progress-text').innerText = data.message;
+                    document.getElementById('progress-bar').value = data.progress;
+                    
+                    if (data.status === 'complete') {
+                        document.getElementById('progress-container').classList.add('completed');
+                        document.getElementById('complete-message').classList.remove('is-hidden');
+                        setTimeout(() => {
+                            window.location.href = '/result';
+                        }, 2000);
+                    } else {
+                        setTimeout(checkStatus, 2000);
+                    }
+                });
+        }
+
+        window.onload = function() {
+            setTimeout(checkStatus, 1000);
+            
+            // Add particles animation
+            const particlesContainer = document.getElementById('particles');
+            for (let i = 0; i < 50; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.top = Math.random() * 100 + '%';
+                particle.style.animationDuration = (Math.random() * 3 + 2) + 's';
+                particle.style.opacity = Math.random() * 0.5 + 0.1;
+                particle.style.width = particle.style.height = Math.random() * 10 + 4 + 'px';
+                particlesContainer.appendChild(particle);
+            }
+        };
+    </script>
+</head>
+<body>
+    <div id="particles"></div>
+    
+    <section class="hero is-medium">
+        <div class="hero-body">
+            <div class="container">
+                <h1 class="title float">Video Enhancer</h1>
+                <h2 class="subtitle">Enhancing your video with AI</h2>
+            </div>
+        </div>
+    </section>
+    
+    <main class="container">
+        <div class="glass-card">
+            <div class="loading-container" id="progress-container">
+                <div class="loading-spinner glow-box"></div>
+                <h3 class="title is-4 glow-text">Processing Your Video</h3>
+                <p class="loading-text" id="progress-text">Starting enhancement process...</p>
+                
+                <progress class="progress is-primary" id="progress-bar" value="15" max="100"></progress>
+                
+                <div class="notification is-primary is-light is-hidden" id="complete-message">
+                    <p><i class="fas fa-check-circle mr-2"></i> Enhancement complete! Redirecting to your video...</p>
+                </div>
+                
+                <div class="details mt-4">
+                    <div class="tags">
+                        <span class="tag is-info is-light"><i class="fas fa-filter mr-1"></i> Denoising</span>
+                        <span class="tag is-success is-light"><i class="fas fa-palette mr-1"></i> Color Enhancement</span>
+                        <span class="tag is-warning is-light"><i class="fas fa-bezier-curve mr-1"></i> Sharpening</span>
+                        <span class="tag is-primary is-light"><i class="fas fa-magic mr-1"></i> AI Processing</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="columns is-centered mt-5">
+            <div class="column is-8">
+                <div class="glass-card">
+                    <h4 class="title is-5">What's happening?</h4>
+                    <p>Our AI is carefully analyzing and enhancing your video frame by frame. This process includes:</p>
+                    <ul class="mt-3">
+                        <li><i class="fas fa-circle-notch mr-2"></i> Noise reduction and artifact removal</li>
+                        <li><i class="fas fa-circle-notch mr-2"></i> Color balance and saturation improvement</li>
+                        <li><i class="fas fa-circle-notch mr-2"></i> Detail enhancement and sharpening</li>
+                        <li><i class="fas fa-circle-notch mr-2"></i> Final rendering and optimization</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <footer class="footer">
+        <div class="content has-text-centered">
+            <p>
+                Video Enhancer &copy; 2024 | Transform Your Videos with AI
+            </p>
+        </div>
+    </footer>
+    
+    <style>
+        #particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+        
+        .particle {
+            position: absolute;
+            background-color: rgba(142, 68, 173, 0.3);
+            border-radius: 50%;
+            pointer-events: none;
+            animation: float-particle linear infinite;
+        }
+        
+        @keyframes float-particle {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 0.1;
+            }
+            50% {
+                opacity: 0.7;
+            }
+            100% {
+                transform: translateY(-100vh) rotate(720deg);
+                opacity: 0;
+            }
+        }
+        
+        .progress {
+            height: 8px;
+            border-radius: 4px;
+            margin: 1.5rem 0;
+            overflow: hidden;
+        }
+        
+        .progress::-webkit-progress-bar {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        .progress::-webkit-progress-value {
+            background: linear-gradient(90deg, var(--primary-dark), var(--accent));
+            background-size: 300% 100%;
+            animation: progress-animation 2s linear infinite;
+        }
+        
+        @keyframes progress-animation {
+            0% { background-position: 100% 0%; }
+            100% { background-position: 0% 0%; }
+        }
+        
+        .completed .loading-spinner {
+            border-top-color: #48c774;
+            transform: scale(0);
+            opacity: 0;
+            transition: all 0.5s ease;
+        }
+        
+        .details {
+            opacity: 0.7;
+            transition: opacity 0.3s ease;
+        }
+        
+        .details:hover {
+            opacity: 1;
+        }
+        
+        .notification {
+            transition: all 0.3s ease;
+        }
+        
+        .is-hidden {
+            display: none;
+        }
+        
+        ul li {
+            margin: 0.5rem 0;
+            opacity: 0.8;
+            transition: all 0.3s ease;
+        }
+        
+        ul li:hover {
+            opacity: 1;
+            transform: translateX(5px);
+        }
+    </style>
+</body>
+</html>
