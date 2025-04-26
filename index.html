@@ -24,7 +24,6 @@
                     <input class="input" type="file" id="videoUpload" accept="video/*">
                 </div>
             </div>
-            <button class="button is-link" id="enhanceBtn">Enhance Video</button>
         </div>
         <div class="section" id="videoPreviewSection" style="display: none;">
             <h2 class="title">Video Preview</h2>
@@ -34,6 +33,19 @@
             <a id="downloadLink" class="button is-success" style="display: none;">Download Enhanced Video</a>
         </div>
     </main>
+    
+    <div class="section">
+        <div class="field">
+            <label class="label">Output Filename</label>
+            <div class="control">
+                <input class="input" type="text" id="outputFilename" placeholder="enhanced_video">
+            </div>
+            <p class="help">Enter the name for your enhanced video file (without extension)</p>
+            <br>
+            <button class="button is-link" id="enhanceBtn">Enhance Video</button>
+        </div>
+    </div>
+    
     <footer class="footer">
         <div class="content has-text-centered">
             <p>&copy; 2024 Fancy Video Enhancer. All rights reserved.</p>

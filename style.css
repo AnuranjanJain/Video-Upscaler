@@ -23,6 +23,10 @@ body {
 .button.is-link {
     background-color: #4a90e2;
     border-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
 }
 
 .button.is-link:hover {
