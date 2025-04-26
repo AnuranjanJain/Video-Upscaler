@@ -22,10 +22,10 @@ A sleek web application for enhancing videos using AI-powered techniques. The ap
 ![Home Screen](screenshots/home_screen.png)
 
 ### File Upload
-![File Upload](screenshots/file_upload.png
+![File Upload](screenshots/file_upload.png)
 
 ### Processing Screen
-![Processing](screenshots/processing.png
+![Processing](screenshots/processing.png)
 
 ### Result Screen
 ![Result](screenshots/result.png)
